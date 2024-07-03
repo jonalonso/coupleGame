@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Juego de Parejas</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="heart_aria_label">Multiples corazones juntos</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>

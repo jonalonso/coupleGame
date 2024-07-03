@@ -2,14 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:id="@+id/nav_graph"
     app:startDestination="@id/FirstFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.jsalazar.couplegame.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:name="com.jsalazar.couplegame.GameBoardFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_game_board">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

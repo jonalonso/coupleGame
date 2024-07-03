@@ -9,29 +9,61 @@
     android:background="@android:color/transparent"
     tools:context=".CardFragment">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/FrontCard"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="front"
-        android:textColor="@color/black"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/card_border"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:textAlignment="center"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/heart_aria_label"
+            android:src="@drawable/hearts"/>
+
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/BackCard"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@android:color/holo_green_light"
-        android:text="back"
+        android:background="@drawable/card_border_reverse"
         android:textColor="@color/black"
         android:alpha="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardLabel"
+            android:textColor="@color/black"
+            android:text="Hola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola Mundo"
+            android:layout_marginHorizontal="20dp"
+            android:textAlignment="center"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/heart_aria_label"
+            android:src="@drawable/hearts"/>
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button_second"

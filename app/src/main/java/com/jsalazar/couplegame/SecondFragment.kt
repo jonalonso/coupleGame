@@ -2,6 +2,8 @@ package com.jsalazar.couplegame
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,17 +11,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.jsalazar.couplegame.databinding.FragmentSecondBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class SecondFragment : DialogFragment() {
 
     private var _binding: FragmentSecondBinding? = null
     private lateinit var FlipAnim:AnimatorSet;
     private lateinit var FlipAnimReverse:AnimatorSet;
+    private lateinit var ShowAnim:AnimatorSet;
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,13 +45,22 @@ class SecondFragment : Fragment() {
             FlipAnim.setTarget(binding.FrontCard);
             FlipAnimReverse = AnimatorInflater.loadAnimator(context,R.animator.flip_animator_reverse) as AnimatorSet;
             FlipAnimReverse.setTarget(binding.BackCard);
+            ShowAnim= AnimatorInflater.loadAnimator(context,R.animator.show_animator) as AnimatorSet;
+            ShowAnim.setTarget(binding.buttonSecond);
 
             Handler(Looper.getMainLooper()).postDelayed(
                 {
                     FlipAnim.start();
                     FlipAnimReverse.start();
                 },
-                1000 // value in milliseconds
+                500
+            )
+
+            Handler(Looper.getMainLooper()).postDelayed(
+                {
+                    ShowAnim.start();
+                },
+                1500
             )
         }
         return binding.root
@@ -58,8 +71,12 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getDialog()?.getWindow()?.setBackgroundDrawable(
+            ColorDrawable(Color.TRANSPARENT))
+
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            dismiss();
+        //    findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
 

@@ -12,15 +12,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
-import com.jsalazar.couplegame.databinding.FragmentSecondBinding
+import com.jsalazar.couplegame.databinding.FragmentCardBinding
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : DialogFragment() {
+class CardFragment : DialogFragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentCardBinding? = null
     private lateinit var FlipAnim:AnimatorSet;
     private lateinit var FlipAnimReverse:AnimatorSet;
     private lateinit var ShowAnim:AnimatorSet;
@@ -34,7 +33,7 @@ class SecondFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentCardBinding.inflate(inflater, container, false)
 
         val scale:Float? = context?.resources?.displayMetrics?.density;
 

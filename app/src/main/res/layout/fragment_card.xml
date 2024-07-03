@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@android:color/transparent"
-    tools:context=".SecondFragment">
+    tools:context=".CardFragment">
 
     <TextView
         android:id="@+id/FrontCard"

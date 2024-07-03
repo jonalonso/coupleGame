@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
 import com.jsalazar.couplegame.databinding.FragmentFirstBinding
 
 /**
@@ -34,7 +33,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            val popUpFragment = SecondFragment();
+            val popUpFragment = CardFragment();
             popUpFragment.show((activity as AppCompatActivity).supportFragmentManager,"test");
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }

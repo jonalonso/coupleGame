@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/white"
-    tools:context=".GameBoardFragment">
+    android:gravity="center">
 
-    <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        android:backgroundTint="@color/thernary"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/rouletteImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/rulette"
+        android:layout_marginBottom="32dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/roulette" />
+
 
     <ImageView
         android:layout_width="100dp"
@@ -28,5 +26,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/heart_aria_label"
         android:src="@drawable/hearts"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

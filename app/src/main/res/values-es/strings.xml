@@ -2,8 +2,15 @@
     <string name="app_name">Juego de Parejas</string>
     <string name="action_settings">Ajustes</string>
     <string name="heart_aria_label">Multiples corazones juntos</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="previous">Volver</string>
+    <string name="spin">Girar</string>
+    <string name="title_activity_settings">Ajustes</string>
+    <string name="delete">Eliminar</string>
+    <string name="custom_questions">Agrega tus preguntas personalizadas aquí</string>
+    <string name="new_question_hint">Escribe tu pregunta</string>
+    <string name="rulette">Una ruleta, dale clic para jugar</string>
 </resources>

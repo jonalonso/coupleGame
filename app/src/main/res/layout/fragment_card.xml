@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@android:color/transparent"
-    tools:context=".CardFragment">
+    tools:context=".fragments.CardFragment">
 
     <RelativeLayout
         android:id="@+id/FrontCard"
@@ -51,7 +51,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/cardLabel"
             android:textColor="@color/black"
-            android:text="Hola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola MundoHola Mundo"
             android:layout_marginHorizontal="20dp"
             android:textAlignment="center"
             android:layout_centerInParent="true"/>
@@ -70,6 +69,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/previous"
+        android:backgroundTint="@color/thernary"
+        android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:alpha="0"
         app:layout_constraintEnd_toEndOf="@+id/FrontCard"

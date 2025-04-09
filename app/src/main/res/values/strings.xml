@@ -6,6 +6,18 @@
     <!-- Strings used for fragments for navigation -->
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="previous">Back</string>
+    <string name="spin">Spin</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="delete">Delete</string>
+    <string name="custom_questions">Add your custom questions here</string>
+    <string name="new_question_hint">Type your question</string>
+    <string name="rulette">A rulette, click it to play</string>
+
+    <!-- Preference Titles -->
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
 
 </resources>

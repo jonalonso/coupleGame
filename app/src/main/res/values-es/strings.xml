@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Juego de Parejas</string>
     <string name="action_settings">Ajustes</string>
     <string name="heart_aria_label">Multiples corazones juntos</string>
 
@@ -13,4 +12,15 @@
     <string name="custom_questions">Agrega tus preguntas personalizadas aquí</string>
     <string name="new_question_hint">Escribe tu pregunta</string>
     <string name="rulette">Una ruleta, dale clic para jugar</string>
+    <string name="intro_title">🎉 ¡Bienvenido!</string>
+    <string name="intro_description"><![CDATA[ 🎯 Toca la ruleta para recibir un desafío al azar.\n\n🔁 ¡Jueguen por turnos, uno a la vez!\n\n✍️ Podés agregar tus propias preguntas en los ajustes.\n\n🎉 ¡Que empiece la diversión! ]]></string>
+    <string name="got_it_button">¡Entendido!</string>
+    <string name="game_mode">Modo de juego:</string>
+    <string-array name="question_options">
+        <item>Todas las preguntas</item>
+        <item>Solo preguntas predeterminadas</item>
+        <item>Solo preguntas personalizadas</item>
+    </string-array>
+    <string name="game_mode_error">No hay preguntas personalizadas. Selecciona otra opción.</string>
+
 </resources>

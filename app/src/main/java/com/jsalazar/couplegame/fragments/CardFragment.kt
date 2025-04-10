@@ -2,13 +2,13 @@ package com.jsalazar.couplegame.fragments
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,14 +16,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import com.jsalazar.couplegame.R
 import com.jsalazar.couplegame.constants.Constants
+import com.jsalazar.couplegame.constants.QuestionMode
 import com.jsalazar.couplegame.data.question
 import com.jsalazar.couplegame.databinding.FragmentCardBinding
 import com.jsalazar.couplegame.generator.questionGenerator
 import kotlin.random.Random
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class CardFragment : DialogFragment() {
 
     private var _binding: FragmentCardBinding? = null
@@ -48,7 +46,8 @@ class CardFragment : DialogFragment() {
         val scale:Float? = context?.resources?.displayMetrics?.density
 
         val customQuestions = loadCustomQuestions()
-        val questions:ArrayList<question> = questionGenerator.generate(this.requireActivity().applicationContext,customQuestions)
+        val mode = sharedPreferences.getString(Constants.SHARED_PREFERENCES_QUESTION_MODE, QuestionMode.ALL.name)
+        val questions:ArrayList<question> = questionGenerator.generate(this.requireActivity().applicationContext,customQuestions,mode!!)
 
 
         if(scale is Float){
@@ -96,6 +95,12 @@ class CardFragment : DialogFragment() {
         binding.buttonSecond.setOnClickListener {
             dismiss()
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        println("hola mundo 2")
+        super.onDismiss(dialog)
+        parentFragmentManager.setFragmentResult("dialog_closed", Bundle())
     }
 
     override fun onDestroyView() {

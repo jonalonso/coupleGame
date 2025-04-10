@@ -13,7 +13,31 @@
         android:background="@color/thernary"
         />
 
-    <!-- Campo para ingresar una nueva pregunta -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_mode"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spinnerQuestionMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="1dp"
+            android:popupBackground="@color/thernary"
+            android:backgroundTint="@color/thernary"
+            android:entries="@array/question_options"
+            android:background="@drawable/spinner_background" /> <!-- Opcional: personaliza el fondo -->
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,6 +72,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
+            android:textStyle="bold"
+            android:textSize="22sp"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/thernary"
             android:textColor="@android:color/white"
@@ -62,5 +88,9 @@
         android:layout_marginBottom="51dp"
         android:layout_weight="1"
         android:layout_marginTop="16dp"/>
-
+    <FrameLayout
+        android:id="@+id/ad_view_container"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="51dp"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

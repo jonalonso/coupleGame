@@ -3,6 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#ffff4444</color>
-    <color name="thernary">#ef5848</color>
-    <color name="secondary">#ffa372</color>
+    <color name="thernary">#ff4267</color>
+    <color name="splash">#ef5848</color>
 </resources>

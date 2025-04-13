@@ -17,7 +17,6 @@ import com.jsalazar.couplegame.ui.SettingsActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.Arrays
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,9 +36,10 @@ class MainActivity : AppCompatActivity() {
         val backgroundScope = CoroutineScope(Dispatchers.IO)
         backgroundScope.launch {
             // Initialize the Google Mobile Ads SDK on a background thread.
-            val testDeviceIds = Arrays.asList(
+            val testDeviceIds = listOf(
+                "44bc8286-cb91-4056-9274-6decb7445702",
                 "777d67ae-1180-456d-ba84-d8bd503515de",
-                "beeae8b9-85d2-4b6f-807f-b4c3e540dc6a"
+                "beeae8b9-85d2-4b6f-807f-b4c3e540dc6a",
             )
             val configuration =
                 RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()

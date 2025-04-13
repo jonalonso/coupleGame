@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">LoveXP</string>
     <string name="action_settings">Ajustes</string>
     <string name="heart_aria_label">Multiples corazones juntos</string>
 

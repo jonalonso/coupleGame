@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">LoveXP</string>
+    <string name="app_name">LoveXP</string>
     <string name="action_settings">Settings</string>
     <string name="heart_aria_label">Multiple hearts together</string>
 

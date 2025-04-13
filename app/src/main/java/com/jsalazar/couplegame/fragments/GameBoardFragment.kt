@@ -15,6 +15,7 @@ import com.google.android.gms.ads.AdView
 import com.jsalazar.couplegame.constants.Constants
 import com.jsalazar.couplegame.databinding.FragmentGameBoardBinding
 import kotlinx.coroutines.runBlocking
+import androidx.core.content.edit
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -35,7 +36,7 @@ class GameBoardFragment : Fragment() {
         val isFirstTime = prefs.getBoolean(Constants.SHARED_PREFERENCES_FIRST_TIME_KEY, true)
         if (isFirstTime) {
             IntroDialogFragment().show(parentFragmentManager, "intro")
-            prefs.edit().putBoolean(Constants.SHARED_PREFERENCES_FIRST_TIME_KEY, false).apply()
+            prefs.edit() { putBoolean(Constants.SHARED_PREFERENCES_FIRST_TIME_KEY, false) }
         }
 
         adView = AdView(this.requireActivity().applicationContext)

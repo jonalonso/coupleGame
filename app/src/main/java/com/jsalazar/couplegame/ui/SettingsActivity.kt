@@ -22,6 +22,7 @@ import com.jsalazar.couplegame.R
 import com.jsalazar.couplegame.constants.Constants
 import com.jsalazar.couplegame.constants.QuestionMode
 import com.jsalazar.couplegame.generator.QuestionAdapter
+import androidx.core.content.edit
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -130,7 +131,12 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setQuestionMode(mode: QuestionMode) {
-        sharedPreferences.edit().putString(Constants.SHARED_PREFERENCES_QUESTION_MODE, mode.name).apply()
+        sharedPreferences.edit() {
+            putString(
+                Constants.SHARED_PREFERENCES_QUESTION_MODE,
+                mode.name
+            )
+        }
 
     }
 
@@ -140,9 +146,9 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun saveQuestions(questions: List<String>) {
-        sharedPreferences.edit()
-            .putStringSet(Constants.SHARED_PREFERENCES_QUESTIONS_KEY, questions.toSet())
-            .apply()
+        sharedPreferences.edit() {
+            putStringSet(Constants.SHARED_PREFERENCES_QUESTIONS_KEY, questions.toSet())
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

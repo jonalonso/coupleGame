@@ -21,6 +21,7 @@ import com.jsalazar.couplegame.data.question
 import com.jsalazar.couplegame.databinding.FragmentCardBinding
 import com.jsalazar.couplegame.generator.questionGenerator
 import kotlin.random.Random
+import android.media.MediaPlayer
 
 class CardFragment : DialogFragment() {
 
@@ -29,6 +30,7 @@ class CardFragment : DialogFragment() {
     private lateinit var FlipAnimReverse:AnimatorSet
     private lateinit var ShowAnim:AnimatorSet
     private lateinit var sharedPreferences: SharedPreferences
+    private var cardFlipSound: MediaPlayer? = null
 
     private val binding get() = _binding!!
 
@@ -65,6 +67,8 @@ class CardFragment : DialogFragment() {
             binding.cardLabel.setText(questions.get(random).questionText)
             Handler(Looper.getMainLooper()).postDelayed(
                 {
+                    cardFlipSound = MediaPlayer.create(context, R.raw.flipcard)
+                    cardFlipSound?.start()
                     FlipAnim.start()
                     FlipAnimReverse.start()
                 },
@@ -98,13 +102,15 @@ class CardFragment : DialogFragment() {
     }
 
     override fun onDismiss(dialog: DialogInterface) {
-        println("hola mundo 2")
         super.onDismiss(dialog)
         parentFragmentManager.setFragmentResult("dialog_closed", Bundle())
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        _binding = null
+        cardFlipSound?.release()
+        cardFlipSound = null
         _binding = null
     }
 }

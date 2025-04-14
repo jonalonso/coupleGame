@@ -1,5 +1,6 @@
 package com.jsalazar.couplegame.fragments
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,8 @@ import com.jsalazar.couplegame.constants.Constants
 import com.jsalazar.couplegame.databinding.FragmentGameBoardBinding
 import kotlinx.coroutines.runBlocking
 import androidx.core.content.edit
+import com.jsalazar.couplegame.R
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -25,7 +28,9 @@ class GameBoardFragment : Fragment() {
     private var _binding: FragmentGameBoardBinding? = null
 
     private val binding get() = _binding!!
+    private var mediaPlayer: MediaPlayer? = null // 👈 MediaPlayer para el sonido
     private var adView: AdView? = null
+    private var isSpinning = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,13 +61,14 @@ class GameBoardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rouletteImage.setOnClickListener {
-            spinRoulette()
+            if (!isSpinning) {
+                spinRoulette()
+            }
         }
 
         parentFragmentManager.setFragmentResultListener(
             "dialog_closed", viewLifecycleOwner
         ) { _, _ ->
-            println("hola mundo")
             binding.adViewContainer.visibility = View.VISIBLE
             val adRequest = AdRequest.Builder().build()
             adView?.loadAd(adRequest)
@@ -75,7 +81,11 @@ class GameBoardFragment : Fragment() {
     }
 
     private fun spinRoulette() = runBlocking {
+        isSpinning = true
         val randomAngle = (360..3600).random()
+        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.ruleta_sonido)
+        mediaPlayer?.isLooping = true
+        mediaPlayer?.start()
 
         val rotateAnimation = RotateAnimation(
             0f, randomAngle.toFloat(),
@@ -89,12 +99,18 @@ class GameBoardFragment : Fragment() {
                 override fun onAnimationStart(animation: Animation?) {}
 
                 override fun onAnimationEnd(animation: Animation?) {
+
+                    mediaPlayer?.stop()
+                    mediaPlayer?.release()
+                    mediaPlayer = null
+
                     binding.adViewContainer.visibility = View.GONE
                     binding.adViewContainer.removeAllViews()
                     adView?.destroy()
 
                     val popUpFragment = CardFragment()
                     popUpFragment.show(parentFragmentManager, "CardFragment")
+                    isSpinning = false
 
                 }
 
@@ -107,5 +123,9 @@ class GameBoardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }
